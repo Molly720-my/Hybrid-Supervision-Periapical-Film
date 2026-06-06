@@ -1,0 +1,20 @@
+_BASE_: mask2former_periapical_base.yaml
+SEED: 42
+MODEL:
+  BACKBONE:
+    NAME: "VITMAE"
+  VITMAE:
+    MODEL_NAME: "vit_base_patch16_224.mae"
+    PRETRAINED: False
+    CHECKPOINT_PATH: ""
+    PATCH_SIZE: 16
+    EMBED_DIM: 768
+    DEPTH: 12
+    IN_FEATURE: "last_feat"
+    OUT_CHANNELS: 256
+    SCALE_FACTORS: [4.0, 2.0, 1.0, 0.5]
+    OUT_FEATURES: ["res2", "res3", "res4", "res5"]
+    NORM: "GN"
+USE_LAYER_DECAY: True
+LR_DECAY_RATE: 0.65
+OUTPUT_DIR: "outputs/periapical_iglc_mae_vit_base"

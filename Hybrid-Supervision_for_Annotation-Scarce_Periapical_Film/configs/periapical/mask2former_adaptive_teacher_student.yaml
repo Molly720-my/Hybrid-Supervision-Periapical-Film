@@ -1,0 +1,11 @@
+_BASE_: mask2former_iglc_mae_vit_base_7class.yaml
+SEMI_SUPERVISED:
+  EMA_DECAY: 0.999
+  SUPERVISED_LOSS_WEIGHT: 0.85
+  PSEUDO_LOSS_WEIGHT: 0.15
+  CONFIDENCE_CENTER: 0.8
+  TEMPERATURE: 0.10
+  MIN_PSEUDO_WEIGHT: 0.05
+  LOG_PERIOD: 20
+  SAVE_TEACHER: True
+OUTPUT_DIR: "outputs/periapical_adaptive_teacher_student"
